@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #inputData,
+      #outputData {
+        width: 45vw;
+        height: 82vh;
+        padding: 10px;
+        box-shadow: 2px 2px 10px;
+        margin: 10px 20px;
+      }
+      #inputData hr,
+      #outputData hr {
+        margin-bottom: 20px;
+      }
+      #inputData form {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 10px;
+      }
+      #inputData form select,
+      #outputData form select {
+        width: 35%;
+      }
+      #inputData form select,
+      #inputData form input,
+      #outputData form select {
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+        color: #fff;
+        background-color: #333;
+      }
+      #inputData form select:hover,
+      #inputData form input:hover,
+      #inputData form select:focus,
+      #inputData form input:focus,
+      #outputData form select:hover,
+      #outputData form select:focus {
+        border: 2px dotted aqua;
+      }
+      #inputData form textarea:focus {
+        border: 1px solid tomato;
+        outline: none;
+      }
+      #outputData button,
+      #inputData button {
+        padding: 5px;
+        border-radius: 7px;
+      }
+      #outputData button:hover,
+      #inputData button:hover {
+        color: #fff;
+        background-color: green;
+      }
+      #notes {
+        padding: 15px;
+        margin-top: 15px;
+        border-top: 1px dashed greenyellow;
+        background-color: #333;
+        color: #fff;
+        height: 70%;
+        max-height: 100%;
+        overflow: auto;
+      }
+      nav {
+        margin: 10px;
+      }
+      nav div {
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        height: 100vh;
+      }
+      nav div a {
+        text-decoration: none;
+        color: #fff;
+        margin-top: 10px;
+        padding: 10px;
+      }
+      nav div a:hover,
+      nav div a:focus {
+        color: black;
+        background-color: rgb(226, 55, 55);
+      }
+    </style>
+  </head>
+  <body>
+    <nav></nav>
+    <div id="inputData">
+      <h2>Enter Notes</h2>
+      <hr />
+      <form action="" id="in_form">
+        <select name="inday" id="inday">
+          <option value="0">Day1</option>
+          <option value="1">Day2</option>
+          <option value="2">Day3</option>
+          <option value="3">Day4</option>
+          <option value="4">Day5</option>
+          <option value="5">Day6</option>
+          <option value="6">Day7</option>
+          <option value="7">Day8</option>
+          <option value="8">Day9</option>
+          <option value="9">Day10</option>
+          <option value="10">Day11</option>
+          <option value="11">Day12</option>
+          <option value="12">Day13</option>
+          <option value="13">Day14</option>
+          <option value="14">Day15</option>
+          <option value="15">Day16</option>
+        </select>
+        <input type="text" id="Heading" placeholder="Enter Headig" />
+        <textarea
+          name="Description"
+          id="Description"
+          cols="60"
+          rows="20"
+          placeholder="Description"
+        ></textarea>
+        <button type="submit" onclick="saveData(event)">Save</button>
+      </form>
+    </div>
+
+    <div id="outputData">
+      <h2>See Notes</h2>
+      <hr />
+      <form action="">
+        <select name="outday" id="outday">
+          <option value="0">Day1</option>
+          <option value="1">Day2</option>
+          <option value="2">Day3</option>
+          <option value="3">Day4</option>
+          <option value="4">Day5</option>
+          <option value="5">Day6</option>
+          <option value="6">Day7</option>
+          <option value="7">Day8</option>
+          <option value="8">Day9</option>
+          <option value="9">Day10</option>
+          <option value="10">Day11</option>
+          <option value="11">Day12</option>
+          <option value="12">Day13</option>
+          <option value="13">Day14</option>
+          <option value="14">Day15</option>
+          <option value="15">Day16</option>
+        </select>
+        <button type="submit" onclick="showNotes(event)">Show Notes</button>
+      </form>
+      <div id="notes">
+        <h2 id="heading_notes"></h2>
+        <p id="paragraph"></p>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  let nav = document.getElementsByTagName("nav")[0];
+  import navbar from "./components/navbar.js";
+  const navbar_data = navbar();
+  nav.innerHTML = navbar_data;
+</script>
+<script src="index.js"></script>
